@@ -30,5 +30,17 @@
       "password": "a?M12345",
       "id": 5
     }
+  ],
+  "lists": [
+    {
+      "userId": 1,
+      "title": "Favoritos",
+      "description": "Lista de películas favoritas de Bebop23",
+      "moviesId": [
+        335787,
+        414906
+      ],
+      "id": 1
+    }
   ]
 }
