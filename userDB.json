@@ -34,6 +34,7 @@
   "lists": [
     {
       "userId": 1,
+      "username": "bebop23",
       "title": "Favoritos",
       "description": "Lista de películas favoritas de Bebop23",
       "moviesId": [
@@ -41,6 +42,18 @@
         414906
       ],
       "id": 1
+    },
+    {
+      "userId": 1,
+      "username": "bebop23",
+      "title": "Acción",
+      "description": "Películas de acción",
+      "moviesId": [
+        335787,
+        675353,
+        414906
+      ],
+      "id": 2
     }
   ]
 }
