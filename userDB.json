@@ -4,7 +4,8 @@
       "username": "bebop23",
       "email": "bebop23@gmail.com",
       "password": "a?M12345",
-      "id": 1
+      "id": 1,
+      "description": "Me gusta ver películas y series."
     },
     {
       "username": "root",
@@ -38,8 +39,12 @@
       "title": "Favoritos",
       "description": "Lista de películas favoritas de Bebop23",
       "moviesId": [
-        335787,
-        414906
+        "movie/675353",
+        "movie/453395",
+        "tv/92749",
+        "tv/120089",
+        "tv/52814",
+        "movie/335787"
       ],
       "id": 1
     },
@@ -49,11 +54,33 @@
       "title": "Acción",
       "description": "Películas de acción",
       "moviesId": [
-        335787,
-        675353,
-        414906
+        "movie/675353",
+        "movie/453395",
+        "movie/335787",
+        "tv/92749"
       ],
       "id": 2
+    },
+    {
+      "title": "Visto",
+      "username": "bebop23",
+      "moviesId": [
+        "movie/675353",
+        "movie/453395",
+        "tv/92749",
+        "movie/335787"
+      ],
+      "id": 3
+    },
+    {
+      "title": "Visto",
+      "username": "bebop23s",
+      "moviesId": [
+        "movie/675353",
+        "movie/453395",
+        "tv/92749"
+      ],
+      "id": 3
     }
   ]
 }
