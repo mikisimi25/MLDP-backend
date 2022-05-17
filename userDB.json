@@ -30,6 +30,24 @@
       "email": "rod2ot@gmail.com",
       "password": "a?M12345",
       "id": 5
+    },
+    {
+      "username": "prueba",
+      "email": "prueba@gmail.com",
+      "password": "12345678?mM",
+      "id": 6
+    },
+    {
+      "username": "prueba2",
+      "email": "prueba2@gmail.com",
+      "password": "12345?mM",
+      "id": 7
+    },
+    {
+      "username": "prueba3",
+      "email": "prueba3@gmail.com",
+      "password": "12345?mM",
+      "id": 8
     }
   ],
   "lists": [
@@ -44,7 +62,11 @@
         "tv/92749",
         "tv/120089",
         "tv/52814",
-        "movie/335787"
+        "movie/335787",
+        "movie/52814",
+        52814,
+        61634,
+        "movie/628900"
       ],
       "id": 1
     },
@@ -57,7 +79,9 @@
         "movie/675353",
         "movie/453395",
         "movie/335787",
-        "tv/92749"
+        "tv/92749",
+        "tv/52814",
+        "movie/284052"
       ],
       "id": 2
     },
@@ -68,19 +92,22 @@
         "movie/675353",
         "movie/453395",
         "tv/92749",
-        "movie/335787"
+        "movie/335787",
+        "tv/52814",
+        "tv/2051"
       ],
       "id": 3
     },
     {
       "title": "Visto",
-      "username": "bebop23s",
+      "username": "prueba",
       "moviesId": [
         "movie/675353",
         "movie/453395",
-        "tv/92749"
+        "tv/92749",
+        "movie/284052"
       ],
-      "id": 3
+      "id": 4
     }
   ]
 }
