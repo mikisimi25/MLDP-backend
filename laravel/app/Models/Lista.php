@@ -15,7 +15,7 @@ class Lista extends Model
         'title',
         'description',
         'public',
-        'user_lista_count',
+        'user_list_count',
         'username',
         'contentId'
     ];

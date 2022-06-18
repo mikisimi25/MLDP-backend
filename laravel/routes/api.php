@@ -16,18 +16,18 @@ use App\Http\Controllers\API\UserController;
 |
 */
 
+    //Route::group(['middleware' => ['jwt.verify']], function() {
+    //});
 
 Route::prefix('list')->group(function () {
-    Route::get('', [ListaController::class,'getUser']);
+    Route::get('', [ListaController::class,'getList']);
     Route::get('/savedLists/{user}', [ListaController::class,'getSavedLists']);
 
-    //Route::group(['middleware' => ['jwt.verify']], function() {
-        Route::post('', [ListaController::class,'store']);
-        Route::post('/save-list', [ListaController::class,'saveList']);
-        Route::patch('{list}', [ListaController::class,'update']);
-        Route::patch('{list}/addContent', [ListaController::class,'addContentToList']);
-        Route::delete('{list}', [ListaController::class,'destroy']);
-    //});
+    Route::post('', [ListaController::class,'store']);
+    Route::post('/save-list', [ListaController::class,'saveList']);
+    Route::put('{list}', [ListaController::class,'update']);
+    Route::patch('{list}/addContent', [ListaController::class,'addContentToList']);
+    Route::delete('{list}', [ListaController::class,'destroy']);
 });
 
 //User
@@ -39,10 +39,7 @@ Route::prefix('user')->group(function () {
     Route::post('register', [UserController::class,'register']);
     Route::post('login', [UserController::class,'authenticate']);
 
-
-    //Route::group(['middleware' => ['jwt.verify']], function() {
-        Route::post('friend-request', [UserController::class,'friendRequest']);
-        Route::patch('{userId}', [UserController::class,'update']);
-        Route::delete('{userId}', [UserController::class,'destroy']);
-    //});
+    Route::post('friend-request', [UserController::class,'friendRequest']);
+    Route::patch('{userId}', [UserController::class,'update']);
+    Route::delete('{userId}', [UserController::class,'destroy']);
 });

@@ -15,12 +15,13 @@ return new class extends Migration
     {
         Schema::create('listas', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('title')->default('')->nullable();
             $table->string('description')->default('');
             $table->boolean('public')->default(false);
             $table->string('username')->unsigned();
             $table->integer('user_list_count');
             $table->string('contentId')->default("[]");
+            $table->boolean('visible')->default(true);
             $table->timestamps();
 
             $table->foreign('username')->references('username')->on('users')->onDelete('cascade');

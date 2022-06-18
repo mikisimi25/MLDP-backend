@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use App\Models\User;
 
 use JWTAuth;
+use AppHelper;
 use Tymon\JWTAuth\Exceptions\JWTException;
 
 class UserSeeder extends Seeder
@@ -32,6 +33,7 @@ class UserSeeder extends Seeder
         ]);
 
         $token = JWTAuth::fromUser($user);
+        AppHelper::instance()->generateStarterPackLists( $user );
 
         $user = User::create([
             'username' => 'pedro',
@@ -42,6 +44,7 @@ class UserSeeder extends Seeder
         ]);
 
         $token = JWTAuth::fromUser($user);
+        AppHelper::instance()->generateStarterPackLists( $user );
 
     }
 }

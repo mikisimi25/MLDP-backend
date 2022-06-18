@@ -11,7 +11,7 @@ use App\Models\Listas_User;
 class ListaController extends Controller
 {
     public function getList(Request $request) {
-        $listaColection = Lista::with('user');
+        $listaColection = Lista::with('user')->where('visible',true);
 
         if(request('id') !== null) {
             $listaColection = $listaColection->where('id',request('id'));
@@ -28,6 +28,7 @@ class ListaController extends Controller
         if(request('user_list_count') !== null) {
             $listaColection = $listaColection->where('user_list_count', request('user_list_count'));
         }
+
 
         return response()->json($listaColection->get(), 200);
     }
