@@ -14,13 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('listas', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('title')->default('')->nullable();
-            $table->string('description')->default('');
+            $table->string('description')->default('')->nullable();
             $table->boolean('public')->default(false);
-            $table->string('username')->unsigned();
-            $table->integer('user_list_count');
-            $table->string('contentId')->default("[]");
+            $table->string('username');
+            $table->bigInteger('user_list_count');
+            $table->string('contentId')->default("[]")->nullable();
             $table->boolean('visible')->default(true);
             $table->timestamps();
 

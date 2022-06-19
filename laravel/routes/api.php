@@ -16,30 +16,32 @@ use App\Http\Controllers\API\UserController;
 |
 */
 
-    //Route::group(['middleware' => ['jwt.verify']], function() {
-    //});
-
+//List
 Route::prefix('list')->group(function () {
     Route::get('', [ListaController::class,'getList']);
-    Route::get('/savedLists/{user}', [ListaController::class,'getSavedLists']);
 
-    Route::post('', [ListaController::class,'store']);
-    Route::post('/save-list', [ListaController::class,'saveList']);
-    Route::put('{list}', [ListaController::class,'update']);
-    Route::patch('{list}/addContent', [ListaController::class,'addContentToList']);
-    Route::delete('{list}', [ListaController::class,'destroy']);
+    Route::group(['middleware' => ['jwt.verify']], function() {
+        Route::get('/savedLists/{user}', [ListaController::class,'getSavedLists']);
+        Route::post('', [ListaController::class,'store']);
+        Route::post('/save-list', [ListaController::class,'saveList']);
+        Route::put('{list}', [ListaController::class,'update']);
+        Route::patch('{list}/addContent', [ListaController::class,'addContentToList']);
+        Route::delete('{list}', [ListaController::class,'destroy']);
+    });
 });
 
 //User
 Route::prefix('user')->group(function () {
     Route::get('', [UserController::class,'getUser']);
-    Route::get('{user}/friends', [UserController::class,'getUserFriends']);
 
-    Route::get('authenticated', [UserController::class,'getAuthenticatedUser']);
     Route::post('register', [UserController::class,'register']);
     Route::post('login', [UserController::class,'authenticate']);
 
-    Route::post('friend-request', [UserController::class,'friendRequest']);
-    Route::patch('{userId}', [UserController::class,'update']);
-    Route::delete('{userId}', [UserController::class,'destroy']);
+    Route::group(['middleware' => ['jwt.verify']], function() {
+        Route::get('authenticated', [UserController::class,'getAuthenticatedUser']);
+        Route::get('{user}/friends', [UserController::class,'getUserFriends']);
+        Route::post('friend-request', [UserController::class,'friendRequest']);
+        Route::patch('{userId}', [UserController::class,'update']);
+        Route::delete('{userId}', [UserController::class,'destroy']);
+    });
 });

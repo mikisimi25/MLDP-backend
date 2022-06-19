@@ -90,7 +90,12 @@ class UserController extends Controller
             $users = $users->where('username','like',"%{$username}%");
         }
 
-        return response()->json($users->get(), 200);
+        if($users->exists()) {
+            return response()->json($users->get(), 200);
+        } else {
+            return response()->json(['user_not_found'], 404);
+        }
+
     }
 
     public function getUserFriends( Request $request ) {

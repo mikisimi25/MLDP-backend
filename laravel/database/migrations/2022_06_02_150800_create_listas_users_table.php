@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('listas_users', function (Blueprint $table) {
-            $table->integer('user_id')->unsigned();
-            $table->integer('lista_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('lista_id')->unsigned();
             $table->timestamps();
 
             $table->primary(['user_id', 'lista_id']);

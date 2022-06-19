@@ -29,7 +29,6 @@ class ListaController extends Controller
             $listaColection = $listaColection->where('user_list_count', request('user_list_count'));
         }
 
-
         return response()->json($listaColection->get(), 200);
     }
 

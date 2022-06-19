@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Crud\UserController;
+use App\Http\Controllers\Crud\ListaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,11 +16,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Route::prefix('admin')->group(function () {
     Auth::routes();
-    Route::get('home', [HomeController::class,'index']);
 });
+
+Route::middleware(['auth'])->group(function () {
+    Route::prefix('admin')->group(function () {
+        Route::get('home', [HomeController::class,'index']);
+
+        Route::prefix('crud')->group(function () {
+            //Crud
+            Route::resource('/listas', ListaController::class);
+            Route::resource('/users', UserController::class);
+        });
+});
+});
+
 
 Route::get('', function () {
     return redirect('/admin/login');

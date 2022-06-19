@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('friends', function (Blueprint $table) {
-            $table->integer('user_requested_id')->unsigned();
-            $table->integer('user_reciever_id')->unsigned();
+            $table->bigInteger('user_requested_id')->unsigned();
+            $table->bigInteger('user_reciever_id')->unsigned();
             $table->boolean('accepted')->default(false);
             $table->timestamps();
 

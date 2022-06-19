@@ -19,9 +19,6 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        // Let's truncate our existing records to start from scratch.
-        User::truncate();
-
         $faker = \Faker\Factory::create();
 
         $user = User::create([

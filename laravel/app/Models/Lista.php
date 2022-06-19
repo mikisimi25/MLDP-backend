@@ -10,14 +10,20 @@ class Lista extends Model
 {
     use HasFactory;
 
+    static $rules = [
+		'username' => 'required',
+		'public' => 'required',
+		'user_list_count' => 'required',
+		'visible' => 'required',
+    ];
+
     protected $fillable = [
-        'id',
         'title',
         'description',
         'public',
         'user_list_count',
         'username',
-        'contentId'
+        'visible'
     ];
 
     protected $hidden = [
