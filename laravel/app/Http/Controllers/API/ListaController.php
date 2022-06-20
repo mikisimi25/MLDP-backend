@@ -70,6 +70,16 @@ class ListaController extends Controller
         return response()->json(null, 200);
     }
 
+    public function destroySavedList( Request $request )
+    {
+        $lista = Lista::findOrFail($request->list);
+        $user = User::findOrFail($request->user);
+
+        $user->savedLists()->detach($lista->id);
+
+        return response()->json(null, 200);
+    }
+
     public function addContentToList( Request $request ) {
         $lista = Lista::findOrFail($request->list);
         $lista->contentId = $request->contentId;

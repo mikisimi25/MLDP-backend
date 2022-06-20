@@ -13,10 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('friends', function (Blueprint $table) {
+        Schema::create('followers', function (Blueprint $table) {
             $table->bigInteger('user_requested_id')->unsigned();
             $table->bigInteger('user_reciever_id')->unsigned();
-            $table->boolean('accepted')->default(false);
             $table->timestamps();
 
             $table->primary(['user_requested_id', 'user_reciever_id']);
@@ -32,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('friends');
+        Schema::dropIfExists('followers');
     }
 };

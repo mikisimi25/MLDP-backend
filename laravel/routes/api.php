@@ -26,6 +26,7 @@ Route::prefix('list')->group(function () {
         Route::post('/save-list', [ListaController::class,'saveList']);
         Route::put('{list}', [ListaController::class,'update']);
         Route::patch('{list}/addContent', [ListaController::class,'addContentToList']);
+        Route::delete('/saved-list/{user}/{list}', [ListaController::class,'destroySavedList']);
         Route::delete('{list}', [ListaController::class,'destroy']);
     });
 });
@@ -39,8 +40,9 @@ Route::prefix('user')->group(function () {
 
     Route::group(['middleware' => ['jwt.verify']], function() {
         Route::get('authenticated', [UserController::class,'getAuthenticatedUser']);
-        Route::get('{user}/friends', [UserController::class,'getUserFriends']);
-        Route::post('friend-request', [UserController::class,'friendRequest']);
+        Route::get('{user}/followers', [UserController::class,'getUserFollowers']);
+        Route::post('follow-request', [UserController::class,'followRequest']);
+        Route::delete('follow-request', [UserController::class,'cancelFollow']);
         Route::patch('{userId}', [UserController::class,'update']);
         Route::delete('{userId}', [UserController::class,'destroy']);
     });

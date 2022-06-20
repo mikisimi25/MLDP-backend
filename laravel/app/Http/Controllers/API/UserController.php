@@ -98,10 +98,10 @@ class UserController extends Controller
 
     }
 
-    public function getUserFriends( Request $request ) {
+    public function getUserFollowers( Request $request ) {
         $user = User::findOrFail($request->user);
 
-        return response()->json($user->friends()->where('accepted', 0)->get(), 200);
+        return response()->json($user->followers, 200);
     }
 
     public function update(Request $request, $userId)
@@ -120,14 +120,22 @@ class UserController extends Controller
         return response()->json(null, 204);
     }
 
-    public function friendRequest( Request $request ) {
+    public function followRequest( Request $request ) {
         $requested = User::findOrFail($request->user_requested_id);
         $reciever = User::findOrFail($request->user_reciever_id);
 
-        $requested->friends()->attach($reciever);
-        $reciever->friends()->attach($requested);
+        $requested->followers()->attach($reciever);
 
-        return response()->json($requested->friends()->where('accepted', 0)->get(), 200);
+        return response()->json("Follow canceled", 200);
+    }
+
+    public function cancelFollow( Request $request ) {
+        $requested = User::findOrFail($request->user_requested_id);
+        $reciever = User::findOrFail($request->user_reciever_id);
+
+        $requested->followers()->detach($reciever);
+
+        return response()->json(null, 200);
     }
 
 }

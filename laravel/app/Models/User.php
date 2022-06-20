@@ -74,7 +74,7 @@ class User extends Authenticatable implements JWTSubject
         return $this->belongsToMany(Lista::class,'listas_users','user_id','lista_id')->withTimestamps();
     }
 
-    public function friends() {
-        return $this->belongsToMany(User::class,'friends','user_requested_id','user_reciever_id')->withTimestamps();
+    public function followers() {
+        return $this->belongsToMany(User::class,'followers','user_requested_id','user_reciever_id')->withTimestamps();
     }
 }
