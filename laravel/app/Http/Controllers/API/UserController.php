@@ -71,7 +71,7 @@ class UserController extends Controller
     }
 
     public function getUser(Request $request) {
-        $users = DB::table('users');
+        $users = DB::table('users')->where('is_admin',false);
 
         if(request('id') !== null) {
             $users = $users->where('id',request('id'));
@@ -93,7 +93,8 @@ class UserController extends Controller
         if($users->exists()) {
             return response()->json($users->get(), 200);
         } else {
-            return response()->json(['user_not_found'], 404);
+            return response()->json($users->get(), 200);
+            // return response()->json(['user_not_found'], 404);
         }
 
     }

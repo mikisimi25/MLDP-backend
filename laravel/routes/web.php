@@ -29,9 +29,8 @@ Route::middleware(['auth'])->group(function () {
             Route::resource('/listas', ListaController::class);
             Route::resource('/users', UserController::class);
         });
+    });
 });
-});
-
 
 Route::get('', function () {
     return redirect('/admin/login');
