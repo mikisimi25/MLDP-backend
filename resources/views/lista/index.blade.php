@@ -35,7 +35,7 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-                                        
+
 										<th>Title</th>
 										<th>Description</th>
 										<th>Public</th>
@@ -51,7 +51,7 @@
                                     @foreach ($listas as $lista)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
+
 											<td>{{ $lista->title }}</td>
 											<td>{{ $lista->description }}</td>
 											<td>{{ $lista->public }}</td>
@@ -76,7 +76,9 @@
                         </div>
                     </div>
                 </div>
-                {!! $listas->links() !!}
+                <div class="paginador">
+                    {!! $listas->links() !!}
+                </div>
             </div>
         </div>
     </div>
